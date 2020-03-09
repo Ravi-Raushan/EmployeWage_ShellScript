@@ -23,12 +23,12 @@ function getWorkHrs(){
 }
 while (( totalEmployeeHrs<$TOTAL_WORKING_HRS && totalWorkingDays<$WORKING_DAY_PER_MONTH ))
 do
-	((totalWorkingDays++))
 	empCheck=$((RANDOM%3))
    empHrs="$( getWorkHrs $empCheck )"
    totalEmployeeHrs=$(( $totalEmployeeHrs + $empHrs ))
-   dailyWage=$(( $empHrs * $WAGE_PER_HRS ))
-   echo $dailyWage
+   dailyWage[totalWorkingDays]=$(( $empHrs * $WAGE_PER_HRS ))
+   ((totalWorkingDays++))
 done
 totalSalary=$(( $totalEmployeeHrs * $WAGE_PER_HRS ))
-echo $totalSalary
+dailyWage[totalWorkingDays]=$totalSalary
+echo ${dailyWage[@]}
