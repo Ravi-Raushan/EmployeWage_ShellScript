@@ -14,13 +14,13 @@ do
 	case $empCheck in
 		$IS_FULL_TIME)
       	            empHrs=8;
-         	         ;;
+         	          ;;
 		$IS_PART_TIME)
-            	      empHrs=4;
-               	   ;;
-    					*)
-					   	empHrs=0;
-                  	;;
+            	     empHrs=4;
+                 	   ;;
+    			   *)
+		     empHrs=0;
+                           ;;
 	esac
    totalEmployeeHrs=$(( $totalEmployeeHrs + $empHrs ))
    dailyWage=$(( $empHrs * $WAGE_PER_HRS ))
