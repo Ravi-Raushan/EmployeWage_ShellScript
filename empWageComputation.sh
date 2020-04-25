@@ -7,13 +7,13 @@ empCheck=$((RANDOM%3))
 case $empCheck in
 	$IS_FULL_TIME)
                   empHrs=8;
-                  ;;
+                        ;;
 	$IS_PART_TIME)
                   empHrs=4;
-                  ;;
-    				*)
-					   empHrs=0;
-                  ;;
+                         ;;
+    		   *)
+	          empHrs=0;
+                        ;;
 esac
 dailyWage=$(( $empHrs * $WAGE_PER_HRS ))
 echo $dailyWage
